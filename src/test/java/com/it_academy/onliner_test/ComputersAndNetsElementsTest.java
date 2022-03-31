@@ -14,23 +14,23 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 @ExtendWith(AllureWatcher.class)
 @Epic("Onliner tests")
-@Feature("Accessories elements")
-public class AccessoriesElementsTest extends BaseTest {
+@Feature("Computers and nets elements")
+public class ComputersAndNetsElementsTest extends BaseTest {
+
     @Test
-    @DisplayName("Presence elements in Accessories section test")
-    @Description("Checking that elements under Accessories section present and they are not empty")
+    @DisplayName("Presence elements in Computers and nets section test")
+    @Description("Checking that elements under Computers and nets section present and they are not empty")
     @Severity(SeverityLevel.NORMAL)
-    @Story("Getting accessories elements")
-    public void testIfElements_PresentInAccessoriesSection() {
+    @Story("Getting computers and nets elements")
+    public void testIfElementsPresent_InComputersAndNetsSection() {
         CatalogPage catalogPage = new CatalogPage();
         catalogPage.open(OnlinerLinks.CATALOG_ONLINER_URL.getLink());
-        List<String> accessoriesElements = catalogPage
+        List<String> computersAndNetsElements = catalogPage
                 .clickOnComputersAnsNetsSection()
-                .clickOnAccessoriesSection()
-                .getListOfAccessoriesElementsTitles();
-        log.info("Actual collection of Accessories elements {}", accessoriesElements);
-        assertThat(accessoriesElements)
-                .as("Accessories elements are empty")
+                .getListOfComputersAndNetsElements();
+        log.info("Actual collection of Computers and nets elements {}", computersAndNetsElements);
+        assertThat(computersAndNetsElements)
+                .as("Computers and nets elements are empty")
                 .allMatch(element->!element.isEmpty());
     }
 }
