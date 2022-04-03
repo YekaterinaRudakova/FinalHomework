@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.open;
 public abstract class BasePage {
     protected final Logger logger;
 
-    public BasePage(){
+    public BasePage() {
         logger = LoggerFactory.getLogger(this.getClass());
         logger.info("Creating instance");
     }
