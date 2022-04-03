@@ -34,6 +34,12 @@
                 <version>2.22.2</version>
                 <configuration>
 <!--                    <forkCount>0</forkCount>-->
+                    <properties>
+                        <configurationParameters>
+                            junit.jupiter.execution.parallel.enabled=true
+                            junit.jupiter.execution.parallel.mode.default=concurrent
+                        </configurationParameters>
+                    </properties>
                     <systemPropertyVariables>
                         <webdriver.chrome.driver>${chrome.driver.path}</webdriver.chrome.driver>
                         <webdriver.safari.driver>${safari.driver.path}</webdriver.safari.driver>
