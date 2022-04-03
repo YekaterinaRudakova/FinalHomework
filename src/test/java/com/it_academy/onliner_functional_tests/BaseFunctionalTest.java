@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
-public class BaseFunctionalTest {
+public abstract class BaseFunctionalTest {
     protected static final Logger LOG = LoggerFactory.getLogger(BaseFunctionalTest.class);
 
     private static void setUpBrowser() {

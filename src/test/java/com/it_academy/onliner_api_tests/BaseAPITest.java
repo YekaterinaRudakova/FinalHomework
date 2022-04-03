@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BaseAPITest {
+public abstract class BaseAPITest {
     protected static final Logger LOG = LoggerFactory.getLogger(BaseAPITest.class);
 
     @BeforeAll
