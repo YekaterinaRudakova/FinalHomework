@@ -9,7 +9,9 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
+import static com.it_academy.onliner_functional.constants.TimeoutConstants.GENERAL_TIMEOUT;
 import static java.lang.String.format;
+import static java.time.Duration.ofSeconds;
 
 
 public class CatalogPage extends BasePage {
@@ -20,13 +22,13 @@ public class CatalogPage extends BasePage {
             "//*[contains(@class," +
                     "'catalog-navigation-classifier__item-title-wrapper') " +
                     "and contains(text(), '%s')]";
-    private static final int EXPECTED_SIZE_OF_CATALOG_ELEMENTS=10;
+    private static final int EXPECTED_SIZE_OF_CATALOG_ELEMENTS = 10;
 
     @Step("Getting catalog elements")
     public List<String> getListOfCatalogElements() {
         logger.info("Getting catalog elements");
         return catalogElements.filter(visible)
-                .shouldHave(size(EXPECTED_SIZE_OF_CATALOG_ELEMENTS)).texts();
+                .shouldHave(size(EXPECTED_SIZE_OF_CATALOG_ELEMENTS), ofSeconds(GENERAL_TIMEOUT)).texts();
     }
 
     @Step("Following to Computers and nets link")

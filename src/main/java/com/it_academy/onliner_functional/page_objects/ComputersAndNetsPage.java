@@ -9,7 +9,9 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
+import static com.it_academy.onliner_functional.constants.TimeoutConstants.GENERAL_TIMEOUT;
 import static java.lang.String.format;
+import static java.time.Duration.ofSeconds;
 
 public class ComputersAndNetsPage extends BasePage {
     private final ElementsCollection computersAndNetsElements =
@@ -25,7 +27,7 @@ public class ComputersAndNetsPage extends BasePage {
     public List<String> getListOfComputersAndNetsElements() {
         logger.info("Getting elements from Computers and nets section");
         return computersAndNetsElements.filter(visible)
-        .shouldHave(size(EXPECTED_SIZE_OF_COMPUTERS_AND_NETS_ELEMENTS)).texts();
+                .shouldHave(size(EXPECTED_SIZE_OF_COMPUTERS_AND_NETS_ELEMENTS), ofSeconds(GENERAL_TIMEOUT)).texts();
     }
 
     @Step("Following to Accessories link")
