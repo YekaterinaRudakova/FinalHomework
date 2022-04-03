@@ -17,7 +17,7 @@ public class BaseFunctionalTest {
 
     private static void setUpBrowser() {
         Configuration.remote = ConfigFileReader
-                .readConfigurationStringProperties("REMOTE");
+               .readConfigurationStringProperties("REMOTE");
         Configuration.headless = ConfigFileReader
                 .readConfigurationBooleanProperties("HEADLESS");
         Configuration.screenshots = ConfigFileReader
@@ -33,7 +33,7 @@ public class BaseFunctionalTest {
         Configuration.pageLoadStrategy = ConfigFileReader
                 .readConfigurationStringProperties("PAGE_LOAD_STRATEGY");
 
-        //LOG.info("Configuration.remote: {}", Configuration.remote);
+        LOG.info("Configuration.remote: {}", Configuration.remote);
         LOG.info("Configuration.headless: {}", Configuration.headless);
         LOG.info("Configuration.screenshots: {}", Configuration.screenshots);
         LOG.info("Configuration.pageLoadTimeout: {}", Configuration.pageLoadTimeout);
