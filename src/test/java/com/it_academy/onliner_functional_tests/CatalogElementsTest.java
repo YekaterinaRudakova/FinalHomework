@@ -1,8 +1,7 @@
-package com.it_academy.onliner_test;
+package com.it_academy.onliner_functional_tests;
 
-import com.it_academy.onliner.OnlinerLinks;
-import com.it_academy.onliner.listeners.AllureWatcher;
-import com.it_academy.onliner.page_objects.OnlinerHomePage;
+import com.it_academy.onliner_functional.listeners.AllureWatcher;
+import com.it_academy.onliner_functional.page_objects.OnlinerHomePage;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,12 +9,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.List;
 
+import static com.it_academy.onliner_functional.OnlinerLinks.MAIN_ONLINER_URL;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 @ExtendWith(AllureWatcher.class)
-@Epic("Onliner tests")
-@Feature("Catalog elements")
-public class CatalogElementsTest extends BaseTest {
+@Epic("Onliner catalog tests")
+@Feature("Catalog elements test")
+public class CatalogElementsTest extends BaseFunctionalTest {
 
     @Test
     @DisplayName("Presence elements in Catalog test")
@@ -24,11 +24,13 @@ public class CatalogElementsTest extends BaseTest {
     @Story("Getting catalog elements")
     public void testIfElements_PresentInCatalog() {
         OnlinerHomePage onlinerHomePage = new OnlinerHomePage();
-        onlinerHomePage.open(OnlinerLinks.MAIN_ONLINER_URL.getLink());
-        List<String> catalogElements = onlinerHomePage.clickOnCatalogLink()
+        LOG.info("OnlinerHomePage is created");
+        onlinerHomePage.openURL(MAIN_ONLINER_URL.getLink());
+        LOG.info("MAIN_ONLINER_URL is opened");
+        List<String> catalogElements = onlinerHomePage.clickOnCatalogLink("Каталог")
                 .getListOfCatalogElements();
-        log.info("Actual collection of catalog elements {}", catalogElements);
-        assertThat(catalogElements)
+        LOG.info("Actual collection of catalog elements {}", catalogElements);
+       assertThat(catalogElements)
                 .as("Catalog elements are empty")
                 .allMatch(element -> !element.isEmpty());
     }

@@ -1,6 +1,6 @@
-package com.it_academy.onliner.listeners;
+package com.it_academy.onliner_functional.listeners;
 
-import com.it_academy.onliner.utils.ScreenshotUtils;
+import com.it_academy.onliner_functional.utils.ScreenshotUtils;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 

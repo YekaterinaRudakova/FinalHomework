@@ -1,4 +1,4 @@
-package com.it_academy.onliner;
+package com.it_academy.onliner_functional;
 
 public enum OnlinerLinks {
     MAIN_ONLINER_URL("https://www.onliner.by/"),

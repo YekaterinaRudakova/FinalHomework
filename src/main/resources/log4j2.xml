@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
+<Configuration status="WARN" monitorInterval = "200">
     <Appenders>
-        <Console name="LogToConsole" target="SYSTEM_OUT">
+        <Console name="LogToConsole" target="SYSTEM_OUT" follow="true">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
         <File name="LogToFile" fileName="logs/onliner.log" append="false">
@@ -12,13 +12,12 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="com.it_academy.onliner_test" level="info" additivity="false">
+        <Logger name="com.it_academy" level="debug" additivity="false">
             <AppenderRef ref="LogToConsole"/>
             <AppenderRef ref="LogToFile"/>
         </Logger>
-        <Root level="info">
+        <Root level="debug">
             <AppenderRef ref="LogToConsole"/>
-            <AppenderRef ref="LogToFile"/>
         </Root>
     </Loggers>
 </Configuration>
