@@ -16,8 +16,8 @@ public class BaseFunctionalTest {
     protected static final Logger LOG = LoggerFactory.getLogger(BaseFunctionalTest.class);
 
     private static void setUpBrowser() {
-        //Configuration.remote= ConfigFileReader
-       // .readConfigurationStringProperties("REMOTE");
+        Configuration.remote = ConfigFileReader
+                .readConfigurationStringProperties("REMOTE");
         Configuration.headless = ConfigFileReader
                 .readConfigurationBooleanProperties("HEADLESS");
         Configuration.screenshots = ConfigFileReader
