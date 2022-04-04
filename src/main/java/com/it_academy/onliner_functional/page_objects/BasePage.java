@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
+import static com.it_academy.onliner_functional.constants.TimeoutConstants.GENERAL_TIMEOUT;
+import static java.time.Duration.ofSeconds;
 
 public abstract class BasePage {
     protected final Logger logger;
@@ -25,11 +27,11 @@ public abstract class BasePage {
 
     @Step("Waiting for element to be clickable ")
     public void waitAndClick(SelenideElement element) {
-        element.shouldBe(enabled).click();
+        element.shouldBe(enabled, ofSeconds(GENERAL_TIMEOUT)).click();
     }
 
     @Step("Waiting for element to be visible")
     public SelenideElement waitVisibility(SelenideElement element) {
-        return element.shouldBe(visible);
+        return element.shouldBe(visible, ofSeconds(GENERAL_TIMEOUT));
     }
 }
